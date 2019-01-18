@@ -1,0 +1,982 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Andrew Lee</title>
+    <!--
+    Outlook Conditional CSS
+    These two style blocks target Outlook 2007 &amp; 2010 specifically, forcing
+    columns into a single vertical stack as on mobile clients. This is
+    primarily done to avoid the 'page break bug' and is optional.
+    More information here:
+    http://templates.mailchimp.com/development/css/outlook-conditional-css
+    -->
+    <!--[if mso 12]>
+    <style>
+      .flexibleContainer {
+      display:block !important;
+      width:100% !important;
+      }
+    </style>
+    <![endif]-->
+    <!--[if mso 14]>
+    <style>
+      .flexibleContainer {
+      display:block !important;
+      width:100% !important;
+      }
+    </style>
+    <![endif]-->
+    <style type="text/css">
+      /*////// RESET STYLES //////*/
+      body,#bodyTable,#bodyCell {
+        height:100% !important;
+        margin:0;
+        padding:0;
+        width:100% !important;
+      }
+      
+      table {
+        border-collapse:collapse;
+      }
+      
+      img,a img {
+        border:0;
+        outline:none;
+        text-decoration:none;
+      }
+      
+      h1,h2,h3,h4,h5,h6 {
+        margin:0;
+        padding:0;
+      }
+      
+      p {
+        margin:1em 0;
+      }
+      
+      /*////// CLIENT-SPECIFIC STYLES //////*/
+      .ReadMsgBody {
+        width:100%;
+      }
+      
+      .ExternalClass {
+        width:100%;
+      }
+      
+      /* Force Hotmail/Outlook.com to display emails at full width. */
+      .ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div {
+        line-height:100%;
+      }
+      
+      /* Force Hotmail/Outlook.com to display line heights normally. */
+      table,td {
+        mso-table-lspace:0;
+        mso-table-rspace:0;
+      }
+      
+      /* Remove spacing between tables in Outlook 2007 and up. */
+      #outlook a {
+        padding:0;
+      }
+      
+      /* Force Outlook 2007 and up to provide a "view in browser" message. */
+      img {
+        -ms-interpolation-mode:bicubic;
+      }
+      
+      /* Force IE to smoothly render resized images. */
+      body,table,td,p,a,li,blockquote {
+        -ms-text-size-adjust:100%;
+        -webkit-text-size-adjust:100%;
+      }
+      
+      /* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */
+      /*////// FRAMEWORK STYLES //////*/
+      .flexibleContainerCell {
+        padding-top:20px;
+        padding-right:20px;
+        padding-left:20px;
+      }
+      
+      .flexibleImage {
+        height:auto;
+      }
+      
+      .bottomShim {
+        padding-bottom:20px;
+      }
+      
+      .imageContent,.imageContentLast {
+        padding-bottom:20px;
+      }
+      
+      .nestedContainerCell {
+        padding-top:20px;
+        padding-right:20px;
+        padding-left:20px;
+      }
+      
+      /*////// GENERAL STYLES //////*/
+      body,#bodyTable {
+        background-color:#F5F5F5;
+      }
+      
+      #bodyCell {
+        padding-top:40px;
+        padding-bottom:40px;
+      }
+      
+      #emailBody {
+        background-color:#FFFFFF;
+        border:1px solid #DDDDDD;
+        border-collapse:separate;
+        border-radius:4px;
+      }
+      
+      h1,h2,h3,h4,h5,h6 {
+        color:#202020;
+        font-family:Helvetica;
+        font-size:20px;
+        line-height:125%;
+        text-align:Left;
+      }
+      
+      .textContent,.textContentLast {
+        color:#404040;
+        font-family:Helvetica;
+        font-size:16px;
+        line-height:125%;
+        text-align:Left;
+        padding-bottom:20px;
+      }
+      
+      .textContent a,.textContentLast a {
+        color:#2C9AB7;
+        text-decoration:underline;
+      }
+      
+      .nestedContainer {
+        background-color:#E5E5E5;
+        border:1px solid #CCCCCC;
+      }
+      
+      .emailButton {
+        background-color:#2C9AB7;
+        border-collapse:separate;
+        border-radius:4px;
+      }
+      
+      .buttonContent {
+        color:#FFFFFF;
+        font-family:Helvetica;
+        font-size:18px;
+        font-weight:bold;
+        line-height:100%;
+        padding:15px;
+        text-align:center;
+      }
+      
+      .buttonContent a {
+        color:#FFFFFF;
+        display:block;
+        text-decoration:none;
+      }
+      
+      .emailCalendar {
+        background-color:#FFFFFF;
+        border:1px solid #CCCCCC;
+      }
+      
+      /*////// MOBILE STYLES //////*/
+      @media only screen and (max-width: 480px) {
+        /*////// CLIENT-SPECIFIC STYLES //////*/
+        body {
+          width:100% !important;
+          min-width:100% !important;
+        }
+        
+        /* Force iOS Mail to render the email at full width. */
+        /*////// FRAMEWORK STYLES //////*/
+        /*
+                       CSS selectors are written in attribute
+                        selector format to prevent Yahoo Mail
+                        from rendering media query styles on
+                        desktop.
+                        */
+        table[id="emailBody"],table[class="flexibleContainer"] {
+          width:100% !important;
+        }
+        
+        /*
+                          The following style rule makes any
+                          image classed with 'flexibleImage'
+                          fluid when the query activates.
+                          Make sure you add an inline max-width
+                          to those images to prevent them
+                          from blowing out. 
+                        */
+        img[class="flexibleImage"] {
+          height:auto !important;
+          width:100% !important;
+        }
+        
+        /*
+                        Make buttons in the email span the
+                        full width of their container, allowing
+                        for left- or right-handed ease of use.
+                        */
+        table[class="emailButton"] {
+          width:100% !important;
+        }
+        
+        td[class="buttonContent"] {
+          padding:0 !important;
+        }
+        
+        td[class="buttonContent"] a {
+          padding:15px !important;
+        }
+        
+        td[class="textContentLast"],td[class="imageContentLast"] {
+          padding-top:20px !important;
+        }
+        
+        /*////// GENERAL STYLES //////*/
+        td[id="bodyCell"] {
+          padding-top:10px !important;
+          padding-right:10px !important;
+          padding-left:10px !important;
+        }
+      }
+      
+      @media only screen and (max-width: 480px) {
+        table#canspamBar td {
+          font-size:14px !important;
+        }
+        
+        table#canspamBar td a {
+          display:block !important;
+          margin-top:10px !important;
+        }
+      }
+      
+      /*////// RESET STYLES //////*/
+      body,#bodyTable,#bodyCell {
+        height:100% !important;
+        margin:0;
+        padding:0;
+        width:100% !important;
+      }
+      
+      table {
+        border-collapse:collapse;
+      }
+      
+      img,a img {
+        border:0;
+        outline:none;
+        text-decoration:none;
+      }
+      
+      h1,h2,h3,h4,h5,h6 {
+        margin:0;
+        padding:0;
+      }
+      
+      p {
+        margin:1em 0;
+      }
+      
+      /*////// CLIENT-SPECIFIC STYLES //////*/
+      .ReadMsgBody {
+        width:100%;
+      }
+      
+      .ExternalClass {
+        width:100%;
+      }
+      
+      /* Force Hotmail/Outlook.com to display emails at full width. */
+      .ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div {
+        line-height:100%;
+      }
+      
+      /* Force Hotmail/Outlook.com to display line heights normally. */
+      table,td {
+        mso-table-lspace:0;
+        mso-table-rspace:0;
+      }
+      
+      /* Remove spacing between tables in Outlook 2007 and up. */
+      #outlook a {
+        padding:0;
+      }
+      
+      /* Force Outlook 2007 and up to provide a "view in browser" message. */
+      img {
+        -ms-interpolation-mode:bicubic;
+      }
+      
+      /* Force IE to smoothly render resized images. */
+      body,table,td,p,a,li,blockquote {
+        -ms-text-size-adjust:100%;
+        -webkit-text-size-adjust:100%;
+      }
+      
+      /* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */
+      /*////// FRAMEWORK STYLES //////*/
+      .flexibleContainerCell {
+        padding-top:20px;
+        padding-right:20px;
+        padding-left:20px;
+      }
+      
+      .flexibleImage {
+        height:auto;
+      }
+      
+      .bottomShim {
+        padding-bottom:20px;
+      }
+      
+      .imageContent,.imageContentLast {
+        padding-bottom:20px;
+      }
+      
+      .nestedContainerCell {
+        padding-top:20px;
+        padding-right:20px;
+        padding-left:20px;
+      }
+      
+      /*////// GENERAL STYLES //////*/
+      body,#bodyTable {
+        background-color:#F5F5F5;
+      }
+      
+      #bodyCell {
+        padding-top:40px;
+        padding-bottom:40px;
+      }
+      
+      #emailBody {
+        background-color:#FFFFFF;
+        border:1px solid #DDDDDD;
+        border-collapse:separate;
+        border-radius:4px;
+      }
+      
+      h1,h2,h3,h4,h5,h6 {
+        color:#202020;
+        font-family:Helvetica;
+        font-size:20px;
+        line-height:125%;
+        text-align:Left;
+      }
+      
+      .textContent,.textContentLast {
+        color:#404040;
+        font-family:Helvetica;
+        font-size:16px;
+        line-height:125%;
+        text-align:Left;
+        padding-bottom:20px;
+      }
+      
+      .textContent a,.textContentLast a {
+        color:#2C9AB7;
+        text-decoration:underline;
+      }
+      
+      .nestedContainer {
+        background-color:#E5E5E5;
+        border:1px solid #CCCCCC;
+      }
+      
+      .emailButton {
+        background-color:#2C9AB7;
+        border-collapse:separate;
+        border-radius:4px;
+      }
+      
+      .buttonContent {
+        color:#FFFFFF;
+        font-family:Helvetica;
+        font-size:18px;
+        font-weight:bold;
+        line-height:100%;
+        padding:15px;
+        text-align:center;
+      }
+      
+      .buttonContent a {
+        color:#FFFFFF;
+        display:block;
+        text-decoration:none;
+      }
+      
+      /*////// MOBILE STYLES //////*/
+      @media only screen and (max-width: 480px) {
+        /*////// CLIENT-SPECIFIC STYLES //////*/
+        body {
+          width:100% !important;
+          min-width:100% !important;
+        }
+        
+        /* Force iOS Mail to render the email at full width. */
+        /*////// FRAMEWORK STYLES //////*/
+        /*
+                  CSS selectors are written in attribute
+                  selector format to prevent Yahoo Mail
+                  from rendering media query styles on
+                  desktop.
+                */
+        table[id="emailBody"],table[class="flexibleContainer"] {
+          width:100% !important;
+        }
+        
+        /*
+                    The following style rule makes any
+                    image classed with 'flexibleImage'
+                    fluid when the query activates.
+                    Make sure you add an inline max-width
+                    to those images to prevent them
+                    from blowing out. 
+                */
+        img[class="flexibleImage"] {
+          height:auto !important;
+          width:100% !important;
+        }
+        
+        /*
+                    Make buttons in the email span the
+                    full width of their container, allowing
+                    for left- or right-handed ease of use.
+                */
+        table[class="emailButton"] {
+          width:100% !important;
+        }
+        
+        td[class="buttonContent"] {
+          padding:0 !important;
+        }
+        
+        td[class="buttonContent"] a {
+          padding:15px !important;
+        }
+        
+        td[class="textContentLast"],td[class="imageContentLast"] {
+          padding-top:20px !important;
+        }
+        
+        /*////// GENERAL STYLES //////*/
+        td[id="bodyCell"] {
+          padding-top:10px !important;
+          padding-right:10px !important;
+          padding-left:10px !important;
+        }
+      }
+      
+      @media only screen and (max-width: 480px) {
+        table#canspamBar td {
+          font-size:14px !important;
+        }
+        
+        table#canspamBar td a {
+          display:block !important;
+          margin-top:10px !important;
+        }
+      }
+      
+      @font-face {
+        font-weight:400;
+        font-style:normal;
+        font-family:'Inter-Loom';
+        src:url(https://cdn.useloom.com/assets/fonts/inter/Inter-UI-Regular.woff2) format("woff2");
+      }
+      
+      @font-face {
+        font-weight:400;
+        font-style:italic;
+        font-family:'Inter-Loom';
+        src:url(https://cdn.useloom.com/assets/fonts/inter/Inter-UI-Italic.woff2) format("woff2");
+      }
+      
+      @font-face {
+        font-weight:500;
+        font-style:normal;
+        font-family:'Inter-Loom';
+        src:url(https://cdn.useloom.com/assets/fonts/inter/Inter-UI-Medium.woff2) format("woff2");
+      }
+      
+      /*@font-face {
+        font-weight:500;
+        font-style:italic;
+        font-family:'Inter-Loom';
+        src:url(https://cdn.useloom.com/assets/fonts/inter/Inter-UI-MediumItalic.woff2) format("woff2");
+      }
+      
+      @font-face {
+        font-weight:700;
+        font-style:normal;
+        font-family:'Inter-Loom';
+        src:url(https://cdn.useloom.com/assets/fonts/inter/Inter-UI-Bold.woff2) format("woff2");
+      }
+      
+      @font-face {
+        font-weight:700;
+        font-style:italic;
+        font-family:'Inter-Loom';
+        src:url(https://cdn.useloom.com/assets/fonts/inter/Inter-UI-BoldItalic.woff2) format("woff2");
+      }
+      
+      @font-face {
+        font-weight:900;
+        font-style:normal;
+        font-family:'Inter-Loom';
+        src:url(https://cdn.useloom.com/assets/fonts/inter/Inter-UI-Black.woff2) format("woff2");
+      }
+      
+      @font-face {
+        font-weight:900;
+        font-style:italic;
+        font-family:'Inter-Loom';
+        src:url(https://cdn.useloom.com/assets/fonts/inter/Inter-UI-BlackItalic.woff2) format("woff2");
+      }*/
+      
+      @media only screen and (max-width: 480px) {
+        table#canspamBar td {
+          font-size:14px !important;
+        }
+        
+        table#canspamBar td a {
+          display:block !important;
+          margin-top:10px !important;
+        }
+      }
+      
+      @media only screen and (max-width: 480px) {
+        table#canspamBar td {
+          font-size:14px !important;
+        }
+        
+        table#canspamBar td a {
+          display:block !important;
+          margin-top:10px !important;
+        }
+        }@media only screen and (max-width: 480px) {
+          table#canspamBar td {
+            font-size:14px !important;
+          }
+          
+          table#canspamBar td a {
+            display:block !important;
+            margin-top:10px !important;
+          }
+        }
+    </style>
+  </head>
+  <body>
+    <center>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tbody>
+          <tr>
+            <td align="center" valign="top" id="bodyCell">
+              <!-- EMAIL CONTAINER // -->
+              <!--
+              The table "emailBody" is the email's container.
+              Its width can be set to 100% for a color band
+              that spans the width of the page.
+              -->
+              <table border="0" cellpadding="0" cellspacing="0" width="600" id="emailBody">
+                <!-- MODULE ROW // -->
+                <!--
+                To move or duplicate any of the design patterns
+                in this email, simply move or copy the entire
+                MODULE ROW section for each content block.
+                -->
+                <tbody>
+                  <tr>
+                    <td align="center" valign="top">
+                      <!-- CENTERING TABLE // -->
+                      <!--
+                      The centering table keeps the content
+                      tables centered in the emailBody table,
+                      in case its width is set to 100%.
+                      -->
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tbody>
+                          <tr>
+                            <td align="center" valign="top">
+                              <!-- FLEXIBLE CONTAINER // -->
+                              <!--
+                              The flexible container has a set width
+                              that gets overridden by the media query.
+                              Most content tables within can then be
+                              given 100% widths.
+                              -->
+                              <!-- // FLEXIBLE CONTAINER -->
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- // CENTERING TABLE -->
+                    </td>
+                  </tr>
+                  <!-- // MODULE ROW -->
+                  <!-- MODULE ROW // -->
+                  <tr>
+                    <td align="center" valign="top">
+                      <!-- CENTERING TABLE // -->
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tbody>
+                          <tr>
+                            <td align="center" valign="top">
+                              <!-- FLEXIBLE CONTAINER // -->
+                              <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer">
+                                <tbody>
+                                  <tr>
+                                    <td valign="top" width="600" class="flexibleContainerCell">
+                                      <!-- CONTENT TABLE // -->
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" width="200" class="flexibleContainer">
+                                        <tbody>
+                                          <tr>
+                                            <td align="left" valign="top" class="imageContent">
+                                              <img src="https://i.imgur.com/MNJjeXi.jpg" width="200" class="flexibleImage" style="max-width:200px;" alt="400">
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <!-- // CONTENT TABLE -->
+                                      <!-- CONTENT TABLE // -->
+                                      <table align="right" border="0" cellpadding="0" cellspacing="0" width="340" class="flexibleContainer">
+                                        <tbody>
+                                          <tr>
+                                            <td valign="top" class="textContent">
+                                              <h3>Andrew Lee</h3>
+                                              <br>
+                                              • Web Developer<br>
+                                              <br>
+                                              • Computer Science Graduate<br>
+                                              <br>
+                                              • Solutions-focused Marketer<br>
+                                              <br>
+                                              • Lifelong Learner/Experimenter<br>
+                                              <br>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <!-- // CONTENT TABLE -->
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- // FLEXIBLE CONTAINER -->
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- // CENTERING TABLE -->
+                    </td>
+                  </tr>
+                  <!-- // MODULE ROW -->
+                  <!-- CONTENT TABLE // -->
+                  <!-- // CONTENT TABLE -->
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // FLEXIBLE CONTAINER -->
+      <!-- // CENTERING TABLE -->
+      <!-- // MODULE ROW -->
+      <!-- MODULE ROW // -->
+      <!-- CENTERING TABLE // -->
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+          <tr>
+            <td align="center" valign="top">
+              <!-- FLEXIBLE CONTAINER // -->
+              <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer">
+                <tbody>
+                  <tr>
+                    <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%" class="nestedContainer">
+                        <tbody>
+                          <tr>
+                            <td valign="top" class="nestedContainerCell" style="border: 1px solid #DDDDDD; background-color:#ffffff;">
+                              <!-- CONTENT TABLE // -->
+                              <table align="right" border="0" cellpadding="0" cellspacing="0" width="200" class="flexibleContainer">
+                                <tbody>
+                                  <tr>
+                                    <td align="left" valign="top" class="imageContent">
+                                      <img src="https://i.imgur.com/I2Rv6W4.png" width="200" class="flexibleImage" style="margin-top:30px; max-width:200px;" alt="400">
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- // CONTENT TABLE -->
+                              <!-- CONTENT TABLE // -->
+                              <table align="left" border="0" cellpadding="0" cellspacing="0" width="280" class="flexibleContainer">
+                                <tbody>
+                                  <tr>
+                                    <td valign="top" class="textContent">
+                                      <h3>Expertise</h3>
+                                      <br>
+                                      • Experience collaborating with cross-functional teams (account, analytics, QA) at Fortune 500 companies<br>
+                                      <br>
+                                      • Experience managing multiple projects at the same time while communicating project status<br>
+                                      <br>
+                                      • 3 years of experience using HTML, CSS and media queries
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- // CONTENT TABLE -->
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- // FLEXIBLE CONTAINER -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // CENTERING TABLE -->
+      <!-- // MODULE ROW -->
+      <!-- EMAIL CONTAINER // -->
+      <!--
+      The table "emailBody" is the email's container.
+      Its width can be set to 100% for a color band
+      that spans the width of the page.
+      -->
+      <table border="0" cellpadding="0" cellspacing="0" width="600">
+        <!-- MODULE ROW // -->
+        <!--
+        To move or duplicate any of the design patterns
+        in this email, simply move or copy the entire
+        MODULE ROW section for each content block.
+        -->
+        <tbody>
+          <tr>
+            <td align="center" valign="top">
+              <!-- CENTERING TABLE // -->
+              <!--
+              The centering table keeps the content
+              tables centered in the emailBody table,
+              in case its width is set to 100%.
+              -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tbody>
+                  <tr>
+                    <td align="center" valign="top">
+                      <!-- FLEXIBLE CONTAINER // -->
+                      <!--
+                      The flexible container has a set width
+                      that gets overridden by the media query.
+                      Most content tables within can then be
+                      given 100% widths.
+                      -->
+                      <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer">
+                        <tbody>
+                          <tr>
+                            <td align="center" valign="top" width="600" class="flexibleContainerCell">
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- // FLEXIBLE CONTAINER -->
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- // CENTERING TABLE -->
+            </td>
+          </tr>
+          <!-- // MODULE ROW -->
+          <!-- MODULE ROW // -->
+          <tr>
+            <td align="center" valign="top">
+              <!-- CENTERING TABLE // -->
+              <table style="background-color:#FFFFFF;border: 1px solid #DDDDDD" border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tbody>
+                  <tr>
+                    <td align="center" valign="top">
+                      <!-- FLEXIBLE CONTAINER // -->
+                      <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer">
+                        <tbody>
+                          <tr>
+                            <td valign="top" width="600" class="flexibleContainerCell">
+                              <!-- CONTENT TABLE // -->
+                              <table align="left" border="0" cellpadding="0" cellspacing="0" width="200" class="flexibleContainer">
+                                <tbody>
+                                  <tr>
+                                    <td align="left" valign="top" class="imageContent">
+                                      <img src="https://d31v04zdn5vmni.cloudfront.net/blog/wp-content/uploads/2014/03/codeschool-drive.gif" style="margin-top: 30px" width="200" class="flexibleImage" alt="400">
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- // CONTENT TABLE -->
+                              <!-- CONTENT TABLE // -->
+                              <table align="right" border="0" cellpadding="0" cellspacing="0" width="340" class="flexibleContainer">
+                                <tbody>
+                                  <tr>
+                                    <td valign="top" class="textContent">
+                                      <br>
+                                      <br>
+                                      <h3 style="margin-top:-10px;">Talent Stack</h3>
+                                      <p>• Email Creation<br>
+                                      <br>
+                                      • Landing Page Creation<br>
+                                      <br>
+                                      • Mobile Responsivity<br>
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <!-- // CONTENT TABLE -->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- // FLEXIBLE CONTAINER -->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- // CENTERING TABLE -->
+          </td>
+        </tr>
+        <!-- // MODULE ROW -->
+        <!-- CONTENT TABLE // -->
+        <tr>
+          <td valign="top" style="text-align:center;" class="imageContentLast">
+            <img src="https://i.imgur.com/MyhyOTC.jpg" width="400" class="flexibleImage" style="margin-top:50px; text-align:center; max-width:400px;" alt="MyhyOTC.jpg">
+          </td>
+        </tr>
+        <!-- // CONTENT TABLE -->
+        <!-- MODULE ROW // -->
+        <tr>
+          <td align="center" valign="top">
+            <!-- CENTERING TABLE // -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+                <tr>
+                  <td align="center" valign="top">
+                    <!-- FLEXIBLE CONTAINER // -->
+                    <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer">
+                      <tbody>
+                        <tr>
+                          <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim">
+                            <table border="0" style="border: 1px solid #DDDDDD;background-color:#ffffff;">
+                              <tbody>
+                                <tr>
+                                  <td valign="top" class="nestedContainerCell">
+                                    <!-- CONTENT TABLE // -->
+                                    <table align="right" border="0" cellpadding="0" cellspacing="0" width="200" class="flexibleContainer">
+                                      <tbody>
+                                        <tr>
+                                          <td align="left" valign="top" class="imageContent">
+                                            <img src="https://i.imgur.com/HCnRjx9.png" width="200" class="flexibleImage" style="max-width:200px;" alt="HCnRjx9.png">
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    <!-- // CONTENT TABLE -->
+                                    <!-- CONTENT TABLE // -->
+                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="280" class="flexibleContainer">
+                                      <tbody>
+                                        <tr>
+                                          <td valign="top" class="textContent">                                                                     <h3 style="margin-top:50px;">Location</h3>
+                                          <br>
+                                          Andrew is located in Oakland county just 15 minutes away from Farmington Hills.
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <!-- // CONTENT TABLE -->
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <!-- // FLEXIBLE CONTAINER -->
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- // FLEXIBLE CONTAINER -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- // CENTERING TABLE -->
+        </td>
+      </tr>
+      <!-- // MODULE ROW -->
+    </tbody>
+  </table>
+  <!-- // EMAIL CONTAINER -->
+</center>
+<center>
+  <table style="margin-top:40px;" border="0" cellpadding="0" cellspacing="0" width="260" class="emailButton">
+    <tr>
+      <td align="center" valign="middle" style="background-color:#146eb4;" class="buttonContent">
+        <a href="mailto:andrew.lee2@wayne.edu?subject=Congrats!%20You're%20Hired" target="_blank">Reach Out</a>
+      </td>
+    </tr>
+  </table>
+  <table style="margin-top:40px;" align="center" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td valign="top" align="left">
+          <a href="tel:555-555-5555" target="_blank"><img src="https://i.imgur.com/oiQ54Jq.jpg" alt="Phone" width="29" height="29" border="0" style="display: block;"></a>
+        </td>
+        <td width="15"> </td>
+        <td valign="top" align="left">
+          <a href="mailto:andrew.lee12@gmail.com" target="_blank"><img src="https://i.imgur.com/YHKGJap.jpg" alt="Email" width="29" height="29" border="0" style="display: block;"></a>
+        </td>
+        <td width="15"> </td>
+        <td valign="top" align="center">
+          <a href="https://github.com/AndrewLee0/LatchaEmail" target="_blank"><img src="https://i.imgur.com/uAIP0UC.png" alt="Github" width="29" height="29" border="0" style="display: block;"></a>
+        </td>
+        <td width="15"> </td>
+        <td valign="top" align="center">
+          <a href="https://www.facebook.com/andrewlee123" target="_blank"><img src="http://kpnet.dk/wp-content/uploads/2015/08/facebook-logo-small105.png" alt="Facebook" width="29" height="29" border="0" style="display: block;"></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</center>
+<center>
+  <br>
+  <br>
+  <br>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" id="canspamBarWrapper" style="background-color:#FFFFFF;border-top:1px solid #E5E5E5;">
+    <tr>
+      <td align="center" valign="top" style="padding-top:20px;padding-bottom:20px;">
+        <table border="0" cellpadding="0" cellspacing="0" id="canspamBar">
+          <tr>
+            <td align="center" valign="top" style="color:#606060;font-family:Helvetica, Arial, sans-serif;font-size:11px;line-height:150%;padding-right:20px;padding-bottom:5px;padding-left:20px;text-align:center;">
+              This email was sent to <a href="mailto:*|EMAIL|*" target="_blank" style="color:#404040 !important;">*|EMAIL|*</a>
+              <br><a href="*|ABOUT_LIST|*" target="_blank" style="color:#404040 !important;"><em>why did I get this?</em></a>    <a href="*|UNSUB|*" style="color:#404040 !important;">unsubscribe from this list</a>    <a href="*|UPDATE_PROFILE|*" style="color:#404040 !important;">update subscription preferences</a>
+              <br>*|LIST:ADDRESSLINE|*
+              <br>
+              <br>*|REWARDS|*
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>
